@@ -33,6 +33,24 @@ namespace ZenCoding.Test
         }
 
         [TestMethod]
+        public void ShortcutText()
+        {
+            string result = _parser.Parse("input:text", ZenType.HTML);
+            string expected = "<input type=\"text\" value=\"\" id=\"\" />";
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void ShortcutTextWithId()
+        {
+            string result = _parser.Parse("input:text#test", ZenType.HTML);
+            string expected = "<input type=\"text\" value=\"\" id=\"test\" />";
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
         public void ShortcutChildren()
         {
             string result = _parser.Parse("input:search+div", ZenType.HTML);
