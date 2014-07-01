@@ -47,6 +47,14 @@ namespace ZenCoding.Test
         }
 
         [TestMethod]
+        public void LoremCount20()
+        {
+            string result = _parser.Parse("p>lorem20", ZenType.HTML);
+
+            Assert.AreEqual(result.Split().Length, 20);
+        }
+
+        [TestMethod]
         public void LoremWithText()
         {
             string result = _parser.Parse("div>lorem+{some text}", ZenType.HTML);
