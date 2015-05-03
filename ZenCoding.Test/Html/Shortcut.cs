@@ -15,10 +15,46 @@ namespace ZenCoding.Test
         }
 
         [TestMethod]
+        public void ShortcutDiv()
+        {
+            string result = _parser.Parse("#name", ZenType.HTML);
+            string expected = "<div id=\"name\"></div>";
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void ShortcutInputWithId()
+        {
+            string result = _parser.Parse("input#name", ZenType.HTML);
+            string expected = "<input type=\"text\" value=\"\" id=\"name\">";
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
         public void ShortcutHidden()
         {
             string result = _parser.Parse("input:h", ZenType.HTML);
             string expected = "<input type=\"hidden\" value=\"\" />";
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void ShortcutHiddenWitId()
+        {
+            string result = _parser.Parse("input:h#name", ZenType.HTML);
+            string expected = "<input type=\"hidden\" value=\"\" id=\"name\" />";
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void ShortcutInputTextWithIdWithClassWithValue()
+        {
+            string result = _parser.Parse("input:text#test.someClass[value=itworks]", ZenType.HTML);
+            string expected = "<input type=\"text\" name=\"\" id=\"test\" class=\"someClass\" value=\"itworks\">";
 
             Assert.AreEqual(expected, result);
         }
@@ -44,8 +80,8 @@ namespace ZenCoding.Test
         [TestMethod]
         public void ShortcutTextWithId()
         {
-            string result = _parser.Parse("input:text#test", ZenType.HTML);
-            string expected = "<input type=\"text\" value=\"\" id=\"test\" />";
+            string result = _parser.Parse("input:text#name", ZenType.HTML);
+            string expected = "<input type=\"text\" value=\"\" id=\"name\" />";
 
             Assert.AreEqual(expected, result);
         }

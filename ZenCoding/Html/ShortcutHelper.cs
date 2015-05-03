@@ -13,6 +13,8 @@ namespace ZenCoding
 
             using (HtmlControl element = HtmlElementFactory.Create(args[0]))
             {
+
+
                 AddAttributes(element, args[1]);
 
                 return element;

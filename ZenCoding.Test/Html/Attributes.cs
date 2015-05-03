@@ -68,6 +68,15 @@ namespace ZenCoding.Test
         }
 
         [TestMethod]
+        public void AttributesBeforeId()
+        {
+            string result = _parser.Parse("div[prop=val]#main", ZenType.HTML);
+            string expected = "<div id=\"main\" prop=\"val\"></div>";
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
         public void AttributesAfterId()
         {
             string result = _parser.Parse("div#main[prop=val]", ZenType.HTML);
