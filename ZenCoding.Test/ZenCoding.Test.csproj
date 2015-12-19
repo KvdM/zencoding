@@ -55,6 +55,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Css\Tables.cs" />
+    <Compile Include="Css\VisualFormatting.cs" />
     <Compile Include="Html\Attributes.cs" />
     <Compile Include="Html\ClimbUp.cs" />
     <Compile Include="Html\Anonymous.cs" />
@@ -79,9 +81,7 @@
       <Name>ZenCoding</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Css\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
